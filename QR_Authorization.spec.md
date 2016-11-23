@@ -8,11 +8,12 @@
 
 This extends the [counterparty url scheme](https://github.com/CounterpartyXCP/cips/blob/master/cip-0002.md) to add support for message signing and a callback
 
-`counterparty:<address>?[message=<message>][action=<action>][callback=<url>]`
+`counterparty:<address>?[message=<message>][action=<action>][icon=<icon_url>][callback=<url>]`
 
 ### Additional Query keys ###
 * `action`: action to perform [sign, broadcast, bet]
 * `callback`: URL to do form POST callback to
+* `icon`: URL to an 48x48 icon file (48x48, gif/jpg/png)
 
 
 ## Callback ##
@@ -42,7 +43,11 @@ The callback data will also include any querystring parameters specified in the 
 ## Examples ##
 Sign message with address and return data to callback url:
 
-`counterparty:1FwkKA9cqpNRFTpVaokdRjT9Xamvebrwcu?action=sign&message=Authparty+Login+BJybUUzYzVuHaUd&callback=https://domain.com/script.php`
+`counterparty:1FwkKA9cqpNRFTpVaokdRjT9Xamvebrwcu?action=sign&message=Authparty+Login+BJybUUzYzVuHaUd&icon=https://domain.com/logo.png&callback=https://domain.com/script.php`
+
+Sign message with ANY address and return data to callback url:
+
+`counterparty:?action=sign&message=Authparty+Login+BJybUUzYzVuHaUd&icon=https://domain.com/logo.png&callback=https://domain.com/script.php`
 
 Broadcast message from address:
 
@@ -55,3 +60,4 @@ If no address is provided (counterparty:?), prompt user to select address, or us
 
 If action is `sign` and no `callback` is specified, display the sign message dialog to the user.
 
+If icon is provided, display icon to user when confirming signing action.
