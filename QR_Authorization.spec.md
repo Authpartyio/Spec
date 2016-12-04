@@ -1,14 +1,18 @@
 <pre>
   Title: QR Authorization spec
   Author: Jeremy Johnson <j-dog@j-dog.net>
+  Contributors: Matthew Reichardt <matthewjames3@protonmail.com>
   Status: Draft
   Type: Informational
   Created: 2016-11-20
+  Updated: 2016-12-03
 </pre>
 
-This extends the [counterparty url scheme](https://github.com/CounterpartyXCP/cips/blob/master/cip-0002.md) to add support for message signing and a callback
+This extends the [counterparty url scheme](https://github.com/CounterpartyXCP/cips/blob/master/cip-0002.md) to add support for message signing and a callback.
 
 `counterparty:<address>?[message=<message>][action=<action>][icon=<icon_url>][callback=<url>]`
+
+It is recommended to include an alias of `counterparty:` in a Android/iOS application. This enables your application to provide a better user experience by easily enabling touch-based authentication.
 
 ### Additional Query keys ###
 * `action`: action to perform [sign, broadcast, bet]
@@ -54,6 +58,8 @@ Broadcast message from address:
 `counterparty:1FwkKA9cqpNRFTpVaokdRjT9Xamvebrwcu?action=broadcast&message=AUTHPARTY+VERIFY-ADDRESS+UMIXIJAnvwbZDax`
 
 ## UI Suggestions ##
+Present to the user whether or not the callback url has SSL enabled.
+
 If `action` is specified, verify action with user to ensure action is truly desired.
 
 If no address is provided (counterparty:?), prompt user to select address, or use current/default address.
