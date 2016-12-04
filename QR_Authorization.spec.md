@@ -10,9 +10,9 @@
 
 This extends the [counterparty url scheme](https://github.com/CounterpartyXCP/cips/blob/master/cip-0002.md) to add support for message signing and a callback.
 
-`counterparty://<address>?[message=<message>][action=<action>][icon=<icon_url>][callback=<url>]`
+`counterparty:<address>?[message=<message>][action=<action>][icon=<icon_url>][callback=<url>]`
 
-It is recommended to include an alias of `counterparty://` in a Android/iOS application. This enables your application to provide a better user experience by easily enabling touch-based authentication.
+It is recommended to include an alias of `counterparty:` in a Android/iOS application. This enables your application to provide a better user experience by easily enabling touch-based authentication.
 
 ### Additional Query keys ###
 * `action`: action to perform [sign, broadcast, bet]
